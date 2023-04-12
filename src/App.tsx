@@ -12,26 +12,36 @@ import SMSWallet from './Pages/SMSWallet'
 import Expenses from './Pages/Expenses'
 import LiveTracking from './Pages/LiveTracking'
 import LoginSignup from './Pages/LoginSignup'
-
+import { ThemeProvider, createTheme } from '@mui/material'
 
 const App = () => {
+  const theme = createTheme({
+    typography: {
+      fontFamily: [
+        'Poppins',
+        'sans-serif'
+      ].join(','),
+    }
+  })
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='loginsignup' element={<LoginSignup />} />
-        <Route path='/' element={<Dashboard />} />
-        <Route path='/customers' element={<Customers />} />
-        <Route path='/products' element={<Products />} />
-        <Route path='/agents-supervisor' element={<AgentsSupervisor />} />
-        <Route path='/companies' element={<Companies />} />
-        <Route path='/collection' element={<Collection />} />
-        <Route path='/reports' element={<Reports />} />
-        <Route path='/complaints' element={<Complaints />} />
-        <Route path='/sms-wallet' element={<SMSWallet />} />
-        <Route path='/expenses' element={<Expenses />} />
-        <Route path='/livetracking' element={<LiveTracking />} />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<LoginSignup />} />
+          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/customers' element={<Customers />} />
+          <Route path='/products' element={<Products />} />
+          <Route path='/agents-supervisor' element={<AgentsSupervisor />} />
+          <Route path='/companies' element={<Companies />} />
+          <Route path='/collection' element={<Collection />} />
+          <Route path='/reports' element={<Reports />} />
+          <Route path='/complaints' element={<Complaints />} />
+          <Route path='/sms-wallet' element={<SMSWallet />} />
+          <Route path='/expenses' element={<Expenses />} />
+          <Route path='/livetracking' element={<LiveTracking />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   )
 }
 
