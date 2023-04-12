@@ -72,7 +72,7 @@ const DasbhboardContent = () => {
                                 <Typography sx={{ fontWeight: '600', fontSize: '20px' }}>{item.amount}</Typography>
                                 <Image src={item.image} sx={{ position: 'absolute', right: 18, bottom: 20 }} />
                                 <Box sx={{ position: 'absolute', bottom: 12, right: 12 }}>
-                                    <Icon icon={item.icon} width='34' color='#F7941D' />
+                                    <Icon icon={item.icon!} width='34' color='#F7941D' />
                                 </Box>
                             </Box>
                         </Grid>

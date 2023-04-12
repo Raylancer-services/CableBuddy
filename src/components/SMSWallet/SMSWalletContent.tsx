@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, Typography, Button, Stack, InputAdornment, IconButton, TextField } from '@mui/material'
+import { Box, Typography, Button, Stack, InputAdornment, IconButton, TextField, Pagination } from '@mui/material'
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
@@ -10,6 +10,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ChatIcon from '@mui/icons-material/Chat';
+import SMSWalletTable from './SMSWalletTable';
 
 
 const activeTabStyle = {
@@ -79,13 +80,16 @@ const SMSWalletContent = () => {
                     <Stack direction='row' gap='3%' sx={{ padding: '1rem' }}>
                         <TextField sx={{ width: '100%' }}
                             value='Select Message Template'
-                            endAdornment={
-                                <InputAdornment position="end">
-                                    <IconButton>
-                                        <ArrowDropDownIcon />
-                                    </IconButton>
-                                </InputAdornment>
-                            }
+                            InputProps={{
+                                endAdornment: (
+                                    <InputAdornment position="end">
+                                        <IconButton sx={{ display: 'flex', flexDirection: 'column' }}>
+                                            <ArrowDropUpIcon />
+                                            <ArrowDropDownIcon />
+                                        </IconButton>
+                                    </InputAdornment>
+                                ),
+                            }}
                         />
                         <Stack direction='column' gap='10px' sx={{ width: '100%' }}>
                             <TextField sx={{ bgcolor: '#F8F8F8' }}
@@ -187,7 +191,7 @@ const SMSWalletContent = () => {
                                 </Select>
                             </FormControl>
                             <FormControl sx={{ m: 1, minWidth: '30%' }} size="small">
-                                <InputLabel id="demo-select-small" sx={{textTransform: 'capitalize', color: 'black', fontWeight: '400', fontSize: '15px' }}>select date for renewal/expired</InputLabel>
+                                <InputLabel id="demo-select-small" sx={{ textTransform: 'capitalize', color: 'black', fontWeight: '400', fontSize: '15px' }}>select date for renewal/expired</InputLabel>
                                 <Select
                                     labelId="demo-select-small"
                                     id="demo-select-small"
@@ -202,6 +206,12 @@ const SMSWalletContent = () => {
                             </FormControl>
                         </Stack>
                     </Stack>
+                </Stack>
+                <Stack sx={{ border: '1px solid #D8D8D8', borderRadius: '10px', bgcolor: 'white', width: '100%', padding: '1rem' }}>
+                    <SMSWalletTable />
+                    <Box sx={{ display: 'flex', justifyContent: 'end', border: '1px solid #D8D8D8', padding: '14px', borderRadius: '0 0 0 0' }}>
+                        <Pagination count={10} variant="outlined" shape="rounded" color="primary" />
+                    </Box>
                 </Stack>
             </Stack >
         </Box >
