@@ -1,6 +1,5 @@
 import React from 'react'
 import { Box, Typography, Button, Stack, Checkbox } from '@mui/material'
-import CurrencyRupeeOutlinedIcon from '@mui/icons-material/CurrencyRupeeOutlined';
 import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -9,8 +8,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import MoreIcon from '@mui/icons-material/More';
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import { rows } from '../../MockData/ProductsTableData';
+import { v4 as uuidv4 } from 'uuid';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme({
@@ -46,7 +45,7 @@ const ProductsTable = () => {
           </TableHead>
           <TableBody>
             {rows.map((row, index) => (
-              <TableRow key={row.name} sx={{ height: '30px', bgcolor: index % 2 == 0 ? '#F8F8F8' : undefined }}>
+              <TableRow key={uuidv4()} sx={{ height: '30px', bgcolor: index % 2 == 0 ? '#F8F8F8' : undefined }}>
                 <TableCell sx={{ fontWeight: '400', fontSize: '12px', borderRight: '1px solid #D8D8D8', color: '#A5A4A4' }}>
                   {row.sno}
                 </TableCell>

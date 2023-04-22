@@ -13,6 +13,8 @@ import Expenses from './Pages/Expenses'
 import LiveTracking from './Pages/LiveTracking'
 import LoginSignup from './Pages/LoginSignup'
 import { ThemeProvider, createTheme } from '@mui/material'
+import LandingPage from './Pages/LandingPage'
+
 
 const App = () => {
   const theme = createTheme({
@@ -27,6 +29,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <Routes>
+          <Route path='/landingpage' element={<LandingPage />} />
           <Route path='/' element={<LoginSignup />} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/customers' element={<Customers />} />

@@ -38,11 +38,16 @@ const LoginSignup = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', background: 'linear-gradient(#0C3547 62.68%, rgba(12, 53, 71, 0.83) 98.96%)', width: '100%', height: '100vh' }}>
-        <Box sx={{ bgcolor: 'white', borderRadius: '12px', width: '35%', height: 'fit-content' }}>
+      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', background: 'linear-gradient(#0C3547 62.68%, rgba(12, 53, 71, 0.83) 98.96%)', width: '100%', minHeight: '100vh', padding: '4%', boxSizing: 'border-box' }}>
+        <Box sx={{ bgcolor: 'white', borderRadius: '12px', width: { xs: '100%', sm: '45%', md: '35%' }, height: 'fit-content' }}>
           <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-              <TabList aria-label='Tabs' onChange={handleChange} textColor='primary' sx={{ '& .MuiTab-textColorPrimary': { color: 'black', fontWeight: '500', fontSize: '18px', '&:active': { color: 'black' } } }}>
+              <TabList aria-label='Tabs' onChange={handleChange} textColor='primary' sx={{
+                '& .MuiTab-textColorPrimary': {
+                  color: 'black', fontWeight: '500', fontSize: { xs: '16px', lg: '20px' },
+                  '&.Mui-selected': { color: 'black' }
+                }
+              }}>
                 <Tab label='Login' value='1' sx={{ width: '50%' }} />
                 <Tab label='Signup' value='2' sx={{ width: '50%' }} />
               </TabList>
@@ -55,7 +60,7 @@ const LoginSignup = () => {
                   <TextField placeholder='Mobile Number' />
                   <TextField placeholder='Password' />
                   <FormControlLabel control={<Checkbox defaultChecked />} label="Remember Password" sx={{ width: 'fit-content', my: '0px', color: '#A5A4A4', '& .MuiCheckbox-root': { py: 0 } }} />
-                  <Button variant='outlined' onClick={handleLogin} sx={{ fontWeight: '500', py: '10px', borderRadius: '8px', width: '70%', mx: 'auto', my: '10px', bgcolor: '#F7941D', color: '#0C3547', border: 'none', '&:hover': { bgcolor: '#F7941D', color: '#0C3547', border: 'none' } }}>LOGIN</Button>
+                  <Button variant='outlined' onClick={handleLogin} sx={{ fontWeight: '500',fontSize: '16px', py: '10px', borderRadius: '8px', width: '70%', mx: 'auto', my: '10px', bgcolor: '#F7941D', color: '#0C3547', border: 'none', '&:hover': { bgcolor: '#F7941D', color: '#0C3547', border: 'none' } }}>LOGIN</Button>
                 </FormControl>
               </Stack>
             </TabPanel>
@@ -72,7 +77,7 @@ const LoginSignup = () => {
                   <TextField placeholder='Mobile Number' />
                   <TextField placeholder='Password' />
                   <FormControlLabel control={<Checkbox defaultChecked />} label="Remember Password" sx={{ width: 'fit-content', my: '0px', color: '#A5A4A4', '& .MuiCheckbox-root': { py: 0 } }} />
-                  <Button variant='outlined' onClick={handleLogin} sx={{ fontWeight: '500', py: '10px', borderRadius: '8px', width: '70%', mx: 'auto', my: '10px', bgcolor: '#F7941D', color: '#0C3547', border: 'none', '&:hover': { bgcolor: '#F7941D', color: '#0C3547', border: 'none' } }}>SignUp</Button>
+                  <Button variant='outlined' onClick={handleLogin} sx={{ fontWeight: '500', fontSize: '16px', py: '10px', borderRadius: '8px', width: '70%', mx: 'auto', my: '10px', bgcolor: '#F7941D', color: '#0C3547', border: 'none', '&:hover': { bgcolor: '#F7941D', color: '#0C3547', border: 'none' } }}>SignUp</Button>
                 </FormControl>
               </Stack>
             </TabPanel>

@@ -16,7 +16,7 @@ const DasbhboardContent = () => {
         <Stack direction='column' spacing={1}>
             <Grid container spacing={2}>
                 {
-                    ColorCard.map((item, index) => (
+                    ColorCard.map((item) => (
                         <Grid lg={3} key={uuidv4()}>
                             <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'start', height: '160px', background: `${item.background}`, px: '5%', py: '18px', position: 'relative', borderRadius: '12px' }}>
                                 <Typography sx={{ fontWeight: '400', fontSize: '16px' }}>{item.title}</Typography>
@@ -36,7 +36,7 @@ const DasbhboardContent = () => {
             </Grid>
             <Grid container spacing={2}>
                 {
-                    RenewalsCard.map((item, index) => (
+                    RenewalsCard.map((item) => (
                         <Grid lg={3} key={uuidv4()}>
                             <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'start', height: '115px', px: '5%', py: '18px', position: 'relative', borderRadius: '12px', border: '0.2px solid #A5A4A4' }}>
                                 <Typography sx={{ fontWeight: '400', fontSize: '14px' }}>{item.title}</Typography>
@@ -49,7 +49,7 @@ const DasbhboardContent = () => {
             </Grid>
             <Grid container spacing={2}>
                 {
-                    CustomersCard.map((item, index) => (
+                    CustomersCard.map((item) => (
                         <Grid lg={3} key={uuidv4()}>
                             <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'start', height: '115px', px: '5%', py: '18px', position: 'relative', borderRadius: '12px', border: '0.2px solid #A5A4A4' }}>
                                 <Typography sx={{ fontWeight: '400', fontSize: '14px' }}>{item.title}</Typography>
@@ -65,7 +65,7 @@ const DasbhboardContent = () => {
             <Typography sx={{ fontWeight: '600', fontSize: '20px', paddingLeft: '1rem' }}>Actions</Typography>
             <Grid container spacing={2}>
                 {
-                    ActionsCard.map((item, index) => (
+                    ActionsCard.map((item) => (
                         <Grid lg={3} key={uuidv4()}>
                             <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'start', height: '115px', px: '5%', py: '18px', position: 'relative', borderRadius: '12px', border: '0.2px solid #A5A4A4' }}>
                                 <Typography sx={{ fontWeight: '400', fontSize: '14px' }}>{item.title}</Typography>
