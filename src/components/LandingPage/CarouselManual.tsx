@@ -11,7 +11,7 @@ import Slider from "react-slick";
 
 const OurClientsSection = () => {
 
-  const [activeIndex, setActiveIndex] = useState(0);                      
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const handlePrevClick = () => {
     setActiveIndex(activeIndex === 0 ? ClientData.length - 1 : activeIndex - 1);
@@ -19,6 +19,20 @@ const OurClientsSection = () => {
 
   const handleNextClick = () => {
     setActiveIndex(activeIndex === ClientData.length - 1 ? 0 : activeIndex + 1);
+  };
+
+  const handleDragEnd = (event:any) => {
+    const containerWidth = event.target.offsetWidth;
+    const dragDistance = event.clientX - event.target.getBoundingClientRect().left;
+    const cardWidth = 350; // Width of one card
+    const cardsPerPage = Math.floor(containerWidth / cardWidth);
+    const draggedCards = Math.round(dragDistance / cardWidth);
+
+    if (draggedCards >= cardsPerPage) {
+      handlePrevClick();
+    } else if (draggedCards <= -cardsPerPage) {
+      handleNextClick();
+    }
   };
 
   return (
@@ -30,13 +44,24 @@ const OurClientsSection = () => {
 
         <Box sx={{ display: 'flex', alignItems: 'center', width: '100%', position: 'absolute', zIndex: 5 }}>
           <Button disableTouchRipple onClick={handlePrevClick} sx={{ position: 'absolute', left: '10px', '&:hover': { backgroundColor: 'transparent' } }}>
-            <Icon icon="bi:arrow-left-circle-fill" color='white' width='45px' />
+            <Icon icon="bi:arrow-left-circle-fill" color='black' width='45px' />
           </Button>
           <Button disableTouchRipple onClick={handleNextClick} sx={{ position: 'absolute', right: '10px', '&:hover': { backgroundColor: 'transparent' } }}>
-            <Icon icon="bi:arrow-right-circle-fill" color='white' width='45px' />
+            <Icon icon="bi:arrow-right-circle-fill" color='black' width='45px' />
           </Button>
         </Box>
-        <Stack sx={{ display: 'flex', flexDirection: 'row', gap: '20px', py: '5px', transition: 'transform 0.3s ease-in-out', transform: `translateX(-${activeIndex * 100}px)` }}>
+        <Stack
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            gap: '20px',
+            py: '5px',
+            transition: 'transform 0.3s ease-in-out',
+            transform: `translateX(-${activeIndex * 300}px)`,
+            cursor: 'grab',
+          }}
+          onMouseUp={handleDragEnd}
+        >
           {
             ClientData.map((card) => (
               <Card elevation={4} key={uuidv4()} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px', width: '350px', height: '500px', padding: '15px', borderRadius: '8px' }}>

@@ -23,19 +23,21 @@ const theme = createTheme({
 });
 
 const selectStyles = {
-    '& .MuiTextField-root': {
-        padding: '0px',
-    },
+    // '& .MuiTextField-root': {
+    //     padding: '0px',
+    // },
     '& .MuiInputBase-root': {
         height: { xs: '25px', md: '30px' },
     },
     '& .MuiOutlinedInput-input': {
+        display: 'flex',
         color: '#F7941D',
+        margin: '0px',
         fontSize: { xs: '11px', md: '14px', xl: '16px' },
     },
     '& .MuiOutlinedInput-notchedOutline': {
-        // border: 'none',
         border: '1px solid #F7941D',
+        padding: '0px'
     },
     '& .MuiSelect-icon': {
         color: '#F7941D',
@@ -53,7 +55,6 @@ const MenubarLoginbutton = {
         fontSize: '14px',
     },
     '& .MuiOutlinedInput-notchedOutline': {
-        // border: 'none',
         border: '1px solid #F7941D',
     },
     '& .MuiSelect-icon': {
@@ -74,14 +75,14 @@ const NavbarLandingPage = () => {
                 <AppBar position='static' sx={{ bgcolor: 'white', px: '7%', py: { sm: '5px', xl: '16px' }, display: { xs: 'none', sm: 'block' } }}>
                     <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <Typography sx={{ display: 'flex', alignItems: 'center', height: '100%', width: '30%' }}>
-                            <Image src={CableBuddyLogo} alt='cablebuddy' sx={{ width: { xs: '10rem', md: '80%' }, height: '80%' }} />
+                            <Image src={CableBuddyLogo} alt='cablebuddy' sx={{ width: { xs: '100%', md: '80%' }, height: '80%' }} />
                         </Typography>
                         <Stack direction='row' spacing={{ xs: 2, md: 4 }}>
-                            <Stack direction='row' spacing={{ xs: 3, md: 4 }}>
-                                <ButtonBase sx={{ fontSize: { xs: '10px', md: '14px', xl: '16px' }, color: 'black', textTransform: 'capitalize', '&:focus': { color: '#F7941D' } }}>Home</ButtonBase>
-                                <ButtonBase sx={{ fontSize: { xs: '10px', md: '14px', xl: '16px' }, color: 'black', textTransform: 'capitalize', '&:focus': { color: '#F7941D' } }}>About Us</ButtonBase>
-                                <ButtonBase sx={{ fontSize: { xs: '10px', md: '14px', xl: '16px' }, color: 'black', textTransform: 'capitalize', '&:focus': { color: '#F7941D' } }}>Blog</ButtonBase>
-                                <ButtonBase sx={{ fontSize: { xs: '10px', md: '14px', xl: '16px' }, color: 'black', textTransform: 'capitalize', '&:focus': { color: '#F7941D' } }}>Contact Us</ButtonBase>
+                            <Stack direction='row' spacing={{ xs: 2, md: 4 }}>
+                                <ButtonBase sx={{ fontSize: { xs: '10px', md: '14px', xl: '16px' },px: '5px', color: 'black', textTransform: 'capitalize', '&:focus': { color: '#F7941D' } }}>Home</ButtonBase>
+                                <ButtonBase sx={{ fontSize: { xs: '10px', md: '14px', xl: '16px' },px: '5px', color: 'black', textTransform: 'capitalize', '&:focus': { color: '#F7941D' } }}>About Us</ButtonBase>
+                                <ButtonBase sx={{ fontSize: { xs: '10px', md: '14px', xl: '16px' },px: '5px', color: 'black', textTransform: 'capitalize', '&:focus': { color: '#F7941D' } }}>Blog</ButtonBase>
+                                <ButtonBase sx={{ fontSize: { xs: '10px', md: '14px', xl: '16px' },px: '5px', color: 'black', textTransform: 'capitalize', '&:focus': { color: '#F7941D' } }}>Contact Us</ButtonBase>
                             </Stack>
                             <Stack direction='row' alignItems='center'>
                                 <TextField select

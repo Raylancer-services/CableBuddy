@@ -29,8 +29,8 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <Routes>
-          <Route path='/landingpage' element={<LandingPage />} />
-          <Route path='/' element={<LoginSignup />} />
+          <Route path='/' element={<LandingPage />} />
+          <Route path='/loginsignup' element={<LoginSignup />} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/customers' element={<Customers />} />
           <Route path='/products' element={<Products />} />
